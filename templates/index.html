@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kenny's Surgery: English Game</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="title-container">
+                <h1>Kenny's Surgery</h1>
+                <h2>English Learning Game</h2>
+            </div>
+            <div class="kenny-preview">
+                <div class="kenny-head-preview">
+                    <div class="face-preview">
+                        <div class="eye-preview left-eye"></div>
+                        <div class="eye-preview right-eye"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="description">You are the surgeon! Follow the instructions on the monitor, perform the operation, and answer English questions to save Kenny.</p>
+            <button id="start-btn" class="btn primary-btn">Start Operation</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <!-- Monitor -->
+            <div id="monitor">
+                <div class="monitor-screen">
+                    <p id="instruction-text">Loading instructions...</p>
+                    <div class="ecg-line"></div>
+                </div>
+            </div>
+            
+            <div class="game-area">
+                <!-- Left Tray: Tools -->
+                <div id="tools-tray" class="tray">
+                    <h3>Tools</h3>
+                    <div class="tray-items">
+                        <div class="item tool" data-item="scalpel" title="Scalpel">🔪</div>
+                        <div class="item tool" data-item="tweezers" title="Tweezers">🥢</div>
+                        <div class="item tool" data-item="syringe" title="Syringe">💉</div>
+                    </div>
+                </div>
+
+                <!-- Center: Operating Table -->
+                <div id="operating-table">
+                    <div id="kenny-body">
+                        <div class="kenny-head">
+                            <div class="hood"></div>
+                            <div class="face">
+                                <div class="eye left"></div>
+                                <div class="eye right"></div>
+                            </div>
+                        </div>
+                        <div class="kenny-coat">
+                            <div class="coat-zipper"></div>
+                            <!-- Surgery Zones -->
+                            <div class="organ-zone" id="zone-chest" data-zone="chest"></div>
+                            <div class="organ-zone" id="zone-stomach" data-zone="stomach"></div>
+                            <div class="organ-zone" id="zone-leg" data-zone="leg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Tray: Organs -->
+                <div id="organs-tray" class="tray">
+                    <h3>Organs</h3>
+                    <div class="tray-items" id="organs-container">
+                        <!-- Organs injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Modal -->
+        <div id="question-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>English Test</h2>
+                    <span id="score-display">Score: 0</span>
+                </div>
+                <div class="question-body">
+                    <p id="question-text">Question?</p>
+                    <div id="options-container">
+                        <!-- Options injected via JS -->
+                    </div>
+                </div>
+                <div id="feedback-message" class="hidden"></div>
+                <button id="next-btn" class="btn primary-btn hidden">Continue Operation</button>
+            </div>
+        </div>
+
+        <!-- End Screen -->
+        <div id="end-screen" class="screen hidden">
+            <h1>Operation Complete!</h1>
+            <div class="end-stats">
+                <p>Final Score: <span id="final-score">0</span> / <span id="total-score">5</span></p>
+                <p id="end-message">Did Kenny survive?</p>
+            </div>
+            <button id="restart-btn" class="btn primary-btn">Play Again</button>
+        </div>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
